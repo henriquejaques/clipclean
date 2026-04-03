@@ -14,8 +14,8 @@
     }
   }
 
-  function unwrapGlossaryButtons(root = document) {
-    if (!enabled) return;
+  function unwrapGlossaryButtons(root = document, { force = false } = {}) {
+    if (!force && !enabled) return;
 
     const room = root.querySelector?.(ROOM_SELECTOR) || document.querySelector(ROOM_SELECTOR);
     if (!room) return;
@@ -64,11 +64,21 @@
     });
   }
 
+  function listenForMessages() {
+    browser.runtime.onMessage.addListener((message) => {
+      if (message && message.type === 'CLIPCLEAN_CLEAN_NOW') {
+        unwrapGlossaryButtons(document, { force: true });
+        return Promise.resolve({ ok: true });
+      }
+    });
+  }
+
   async function init() {
     await loadEnabled();
     unwrapGlossaryButtons(document);
     startObserver();
     watchStorage();
+    listenForMessages();
   }
 
   if (document.readyState === 'loading') {
