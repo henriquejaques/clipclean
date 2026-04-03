@@ -1,41 +1,25 @@
 # ClipClean
 
-A minimal Firefox extension for cleaning TryHackMe room pages before clipping to Obsidian (or similar).
+Firefox extension to clean TryHackMe room pages for better Obsidian clipping.
 
-## What it does
-Removes glossary button wrappers (`button[data-testid="glossary-term"]`) inside `#room_content`, keeping text and formatting intact for clean Markdown.
+Removes glossary button wrappers in #room_content (keeps text/formatting) for clean Markdown.
 
-## Features
-- Popup toggle (on/off, persists locally)
-- Handles dynamic/SPA content (MutationObserver)
-- Light/dark mode aware popup
-- Narrow, simple UI
-- Firefox-first WebExtension
-- Local-only: no tracking, no remote calls
+## Install (dev)
 
-## Status
-- Works on TryHackMe room pages
-- Idempotent (safe to run repeatedly)
+Firefox: about:debugging → Load Temporary Add-on → manifest.json
 
-## Limitations
-- Disabling stops future unwrapping but doesn't restore already-cleaned buttons (reload page)
+## Usage
 
-## Install (development)
-1. Clone this repo
-2. Firefox: `about:debugging#/runtime/this-firefox` → "Load Temporary Add-on" → select `manifest.json`
+Popup toggle to enable/disable. Reload room pages if needed.
 
-## Next priorities
-- "Clean now" button
-- Reversible disable (without reload)
-- Toolbar badge for state
-- Fallback selectors (DOM changes)
-- Multi-room testing
-- Icons & packaging
-- Chrome compat (later)
+Handles dynamic content.
 
-## Privacy & Affiliation
-- **Local only**: state in browser storage, nothing sent anywhere
-- **No affiliation** with TryHackMe
-- Minimal permissions: storage + tryhackme.com access
+## Privacy
 
-Built with ❤️ for clean notes.
+Local storage only. No network requests, tracking, or data collection.
+
+Not affiliated with TryHackMe.
+
+## License
+
+MIT
