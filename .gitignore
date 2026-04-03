@@ -7,3 +7,8 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Artifacts
+.plan/
+clipclean.zip
+*.zip
