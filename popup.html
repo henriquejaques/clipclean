@@ -14,8 +14,8 @@
       --muted: #5b6472;
       --line: rgba(15, 23, 42, 0.10);
       --shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
-      --accent: #4f46e5;
-      --accent-2: #4338ca;
+      --accent: #7c3aed;
+      --accent-2: #6d28d9;
       --switch-off: #cbd5e1;
       --success: #0f766e;
     }
@@ -29,8 +29,8 @@
         --muted: #a7b0be;
         --line: rgba(255, 255, 255, 0.10);
         --shadow: 0 12px 28px rgba(0, 0, 0, 0.34);
-        --accent: #818cf8;
-        --accent-2: #6366f1;
+        --accent: #a78bfa;
+        --accent-2: #8b5cf6;
         --switch-off: #3a4150;
         --success: #5eead4;
       }
@@ -52,7 +52,7 @@
       background: linear-gradient(180deg, var(--panel-2), var(--panel));
       border: 1px solid var(--line);
       border-radius: 14px;
-      padding: 12px;
+      padding: 16px;
       box-shadow: var(--shadow);
     }
 
@@ -76,14 +76,6 @@
       margin-bottom: 3px;
     }
 
-    .dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: currentColor;
-      opacity: .9;
-    }
-
     .title {
       font-size: 14px;
       font-weight: 700;
@@ -94,8 +86,23 @@
     .desc {
       margin: 0;
       font-size: 12px;
-      line-height: 1.45;
+      line-height: 1.5;
       color: var(--muted);
+    }
+
+    .group {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 12px;
+    }
+
+    .group-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .03em;
     }
 
     .switch {
@@ -142,10 +149,13 @@
       transform: translateX(18px);
     }
 
+    .divider {
+      height: 1px;
+      background: var(--line);
+      margin: 16px 0;
+    }
+
     .status {
-      margin-top: 10px;
-      padding-top: 10px;
-      border-top: 1px solid var(--line);
       font-size: 12px;
       line-height: 1.4;
       color: var(--text);
@@ -154,55 +164,30 @@
     .status strong {
       color: var(--success);
     }
-
-    .meta {
-      margin-top: 8px;
-      font-size: 10.5px;
-      line-height: 1.45;
-      color: var(--muted);
-    }
-
-    .clean-btn {
-      display: block;
-      width: 100%;
-      margin-top: 10px;
-      padding: 8px 12px;
-      font-size: 12px;
-      font-weight: 600;
-      color: #fff;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: opacity .15s ease;
-    }
-
-    .clean-btn:hover {
-      opacity: .9;
-    }
-
-    .clean-btn:active {
-      opacity: .8;
-    }
   </style>
 </head>
 <body>
   <section class="card" aria-label="ClipClean settings">
     <div class="top">
       <div>
-        <div class="eyebrow"><span class="dot" aria-hidden="true"></span>ClipClean</div>
+        <div class="eyebrow">ClipClean</div>
         <h1 class="title">TryHackMe</h1>
       </div>
+    </div>
+
+    <p class="desc">Removes glossary buttons on room pages so copied text stays clean.</p>
+
+    <div class="group">
+      <span class="group-label">Auto-clean</span>
       <label class="switch" aria-label="Enable ClipClean on TryHackMe room pages">
         <input id="enabledToggle" type="checkbox">
         <span class="slider"></span>
       </label>
     </div>
 
-    <p class="desc">Keeps glossary terms as plain text.</p>
-    <button id="cleanNow" class="clean-btn">Clean now</button>
+    <div class="divider"></div>
+
     <div id="status" class="status">Loading…</div>
-    <p class="meta">Local only. No tracking. No cookies. Not affiliated with TryHackMe.</p>
   </section>
   <script src="popup.js"></script>
 </body>

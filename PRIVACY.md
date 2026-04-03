@@ -1,11 +1,21 @@
 # Privacy Policy
 
-ClipClean operates entirely locally in your browser:
+**Last updated:** 2026-04-03
 
-- Toggle state saved to browser storage
+This extension operates entirely locally in your browser:
+
+- Toggle state saved to browser storage (`browser.storage.local`)
+- Host permissions limited to `https://tryhackme.com/room/*`
 - No external requests or data transmission
 - No analytics, cookies, or tracking
 
-We do not collect any user data.
+This extension does not collect any user data.
+
+## Contact
+
+For questions or issues, open a GitHub issue at:
+https://github.com/henriquejaques/clipclean/issues
+
+---
 
 Not affiliated with or endorsed by TryHackMe.

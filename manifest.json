@@ -1,10 +1,10 @@
 {
   "manifest_version": 3,
   "name": "ClipClean for TryHackMe",
-  "version": "1.1.0",
+  "version": "1.4.0",
   "description": "Toggle cleanup of TryHackMe glossary buttons so captured notes keep the text and formatting.",
-  "permissions": ["storage", "tabs"],
-  "host_permissions": ["https://tryhackme.com/*"],
+  "permissions": ["storage"],
+  "host_permissions": ["https://tryhackme.com/room/*"],
   "background": {
     "scripts": ["background.js"]
   },
@@ -20,12 +20,12 @@
     }
   ],
   "icons": {
-    "48": "icons/icon-48.png",
-    "96": "icons/icon-96.png"
+    "48": "icons/clipclean_48x48_primary.png",
+    "96": "icons/clipclean_96x96_primary.png"
   },
   "browser_specific_settings": {
     "gecko": {
-      "id": "clipclean-tryhackme@local"
+      "id": "clipclean@henriquejaques.com"
     }
   }
 }
