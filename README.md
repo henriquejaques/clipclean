@@ -8,16 +8,18 @@ TryHackMe wraps key terms in interactive glossary `<button>` elements. When you 
 
 ## Install
 
-**Firefox Add-ons (AMO):** *Coming soon*
+**Firefox Add-ons (AMO):** *Coming soon* — listing copy and reviewer notes live in [AMO.md](AMO.md).
 
 **Manual / Dev:**
 Firefox → `about:debugging` → Load Temporary Add-on → select `manifest.json`
 
+**Requirements:** Firefox **109+** (Manifest V3; see `strict_min_version` in `manifest.json`).
+
 ## How it works
 
 - Toggle the switch in the popup to enable/disable auto-cleaning
-- When enabled, glossary buttons inside `#room_content` are unwrapped automatically — including dynamic content loaded after the page renders
-- The toolbar icon changes between green (on) and gray (off) to show the current state
+- When enabled, glossary buttons matching `button[data-testid="glossary-term"]` inside `#room_content` are unwrapped automatically — including dynamic content loaded after the page renders
+- The toolbar icon switches between the **primary** (on) and **secondary** (off) icon assets to show the current state
 - Turning it off stops future cleaning; reload the page to restore original buttons
 
 ## Privacy

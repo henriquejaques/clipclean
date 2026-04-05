@@ -10,15 +10,10 @@
     96: 'icons/clipclean_96x96_secondary.png'
   };
 
-  const BADGE_ON  = { text: 'ON',  color: '#0f766e' };
-  const BADGE_OFF = { text: 'OFF', color: '#6b7280' };
-
   async function renderState(enabled) {
-    const badge = enabled ? BADGE_ON : BADGE_OFF;
-    const icon  = enabled ? ICON_ON  : ICON_OFF;
+    const icon = enabled ? ICON_ON : ICON_OFF;
     await browser.action.setIcon({ path: icon });
-    await browser.action.setBadgeText({ text: badge.text });
-    await browser.action.setBadgeBackgroundColor({ color: badge.color });
+    await browser.action.setBadgeText({ text: '' });
   }
 
   async function loadAndRender() {
