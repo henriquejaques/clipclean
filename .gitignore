@@ -1,0 +1,14 @@
+# Opencode
+.opencode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Artifacts
+.plan/
+clipclean.zip
+*.zip

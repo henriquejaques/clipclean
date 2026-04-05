@@ -1,41 +1,44 @@
 # ClipClean
 
-A minimal Firefox extension for cleaning TryHackMe room pages before clipping to Obsidian (or similar).
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/henriquejaques)
 
-## What it does
-Removes glossary button wrappers (`button[data-testid="glossary-term"]`) inside `#room_content`, keeping text and formatting intact for clean Markdown.
+Firefox extension that cleans TryHackMe glossary buttons for better Obsidian clipping.
 
-## Features
-- Popup toggle (on/off, persists locally)
-- Handles dynamic/SPA content (MutationObserver)
-- Light/dark mode aware popup
-- Narrow, simple UI
-- Firefox-first WebExtension
-- Local-only: no tracking, no remote calls
+## Why
 
-## Status
-- Works on TryHackMe room pages
-- Idempotent (safe to run repeatedly)
+TryHackMe wraps key terms in interactive glossary `<button>` elements. When you copy room content (or clip it with Obsidian Web Clipper), those buttons break the text flow and produce messy Markdown. ClipClean unwraps them back to plain text, keeping the original content and formatting intact.
 
-## Limitations
-- Disabling stops future unwrapping but doesn't restore already-cleaned buttons (reload page)
+## Install
 
-## Install (development)
-1. Clone this repo
-2. Firefox: `about:debugging#/runtime/this-firefox` → "Load Temporary Add-on" → select `manifest.json`
+**Firefox Add-ons (AMO):** *Coming soon* — listing copy and reviewer notes live in [AMO.md](AMO.md).
 
-## Next priorities
-- "Clean now" button
-- Reversible disable (without reload)
-- Toolbar badge for state
-- Fallback selectors (DOM changes)
-- Multi-room testing
-- Icons & packaging
-- Chrome compat (later)
+**Manual / Dev:**
+Firefox → `about:debugging` → Load Temporary Add-on → select `manifest.json`
 
-## Privacy & Affiliation
-- **Local only**: state in browser storage, nothing sent anywhere
-- **No affiliation** with TryHackMe
-- Minimal permissions: storage + tryhackme.com access
+**Requirements:** Firefox **109+** (Manifest V3; see `strict_min_version` in `manifest.json`).
 
-Built with ❤️ for clean notes.
+## How it works
+
+- Toggle the switch in the popup to enable/disable auto-cleaning
+- When enabled, glossary buttons matching `button[data-testid="glossary-term"]` inside `#room_content` are unwrapped automatically — including dynamic content loaded after the page renders
+- The toolbar icon switches between the **primary** (on) and **secondary** (off) icon assets to show the current state
+- Turning it off stops future cleaning; reload the page to restore original buttons
+
+## Privacy
+
+Local storage only. No network requests, tracking, or data collection. See [PRIVACY.md](PRIVACY.md).
+
+Not affiliated with TryHackMe.
+
+## Support
+
+If this project helps you, you can [buy me a coffee on Ko-fi](https://ko-fi.com/henriquejaques).
+
+## Changelog
+
+Release notes and version history: [CHANGELOG.md](CHANGELOG.md). GitHub [Releases](https://github.com/henriquejaques/clipclean/releases) include signed-off builds (`clipclean.zip`) when published.
+
+## License
+
+[MIT](LICENSE)

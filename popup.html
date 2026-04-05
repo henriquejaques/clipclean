@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ClipClean</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #ffffff;
+      --panel: #f8fafc;
+      --panel-2: #eef2ff;
+      --text: #111827;
+      --muted: #5b6472;
+      --line: rgba(15, 23, 42, 0.10);
+      --shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+      --switch-off: #cbd5e1;
+      --success: #0f766e;
+      --switch-on: #4eb075;
+      --state-off: #5a6d6b;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f1115;
+        --panel: #171a21;
+        --panel-2: #1d2230;
+        --text: #f3f4f6;
+        --muted: #a7b0be;
+        --line: rgba(255, 255, 255, 0.10);
+        --shadow: 0 12px 28px rgba(0, 0, 0, 0.34);
+        --switch-off: #3a4150;
+        --success: #5eead4;
+        --state-off: #5d8f86;
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      padding: 18px;
+      min-width: 257px;
+      max-width: 257px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, var(--panel-2), var(--panel));
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .header-icon {
+      display: block;
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+      border-radius: 8px;
+    }
+
+    .title {
+      flex: 1;
+      min-width: 0;
+      min-height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin: 0;
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      transform: translateY(-2px);
+    }
+
+    .tagline {
+      margin: 10px 0 18px;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.4;
+      letter-spacing: normal;
+      color: var(--muted);
+    }
+
+    .group {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 0 0 18px;
+    }
+
+    .desc {
+      margin: 0;
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+
+    .group-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .03em;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 42px;
+      height: 24px;
+      flex: 0 0 auto;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      inset: 0;
+      cursor: pointer;
+      background: var(--switch-off);
+      border-radius: 999px;
+      transition: background-color .18s ease;
+    }
+
+    .slider::before {
+      content: "";
+      position: absolute;
+      left: 3px;
+      top: 3px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22);
+      transition: transform .18s ease;
+    }
+
+    input:checked + .slider {
+      background: var(--switch-on);
+    }
+
+    input:checked + .slider::before {
+      transform: translateX(18px);
+    }
+
+    .switch input:focus {
+      outline: none;
+    }
+
+    .switch input:focus-visible + .slider {
+      box-shadow: 0 0 0 2px var(--panel), 0 0 0 4px var(--switch-on);
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--line);
+      margin: 22px 0 16px;
+    }
+
+    .status {
+      font-size: 12px;
+      line-height: 1.4;
+      color: var(--text);
+    }
+
+    .status.is-animating {
+      animation: statusReveal 0.24s ease-out;
+    }
+
+    @keyframes statusReveal {
+      from {
+        opacity: 0.2;
+        transform: translateY(4px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .state-on {
+      color: var(--success);
+      font-weight: 700;
+    }
+
+    .state-off {
+      color: var(--state-off);
+      font-weight: 700;
+    }
+
+    .status-detail {
+      color: var(--muted);
+      font-weight: 400;
+    }
+  </style>
+</head>
+<body>
+  <main aria-label="ClipClean settings">
+    <div class="header-row">
+      <img
+        class="header-icon"
+        src="icons/clipclean_48x48_primary.png"
+        width="36"
+        height="36"
+        alt=""
+      />
+      <h1 class="title">ClipClean</h1>
+    </div>
+    <p class="tagline">Glossary cleanup for TryHackMe room pages</p>
+
+    <div class="group">
+      <span class="group-label">Auto-clean</span>
+      <label class="switch" aria-label="Enable ClipClean on room pages">
+        <input id="enabledToggle" type="checkbox">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <p class="desc">Removes glossary buttons on room pages so copied text stays clean.</p>
+
+    <div class="divider"></div>
+
+    <div id="status" class="status">Loading…</div>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>
