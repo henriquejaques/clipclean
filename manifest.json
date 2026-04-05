@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "ClipClean for TryHackMe",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Toggle cleanup of TryHackMe glossary buttons so captured notes keep the text and formatting.",
   "permissions": ["storage"],
   "host_permissions": ["https://tryhackme.com/room/*"],
@@ -26,7 +26,10 @@
   "browser_specific_settings": {
     "gecko": {
       "id": "clipclean@henriquejaques.com",
-      "strict_min_version": "109.0"
+      "strict_min_version": "109.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
     }
   }
 }

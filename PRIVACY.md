@@ -11,6 +11,8 @@ This extension operates entirely locally in your browser:
 
 This extension does not collect any user data.
 
+On supported Firefox versions, the add-on declares **no data collection or transmission** in `manifest.json` via Mozilla’s built-in taxonomy (`browser_specific_settings.gecko.data_collection_permissions.required: ["none"]`). See [Firefox built-in consent for data collection](https://extensionworkshop.com/documentation/develop/firefox-builtin-data-consent/).
+
 ## Contact
 
 Email: henriquemjaques@gmail.com

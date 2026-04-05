@@ -35,6 +35,10 @@ Not affiliated with TryHackMe.
 
 If this project helps you, you can [buy me a coffee on Ko-fi](https://ko-fi.com/henriquejaques).
 
+## Changelog
+
+Release notes and version history: [CHANGELOG.md](CHANGELOG.md). GitHub [Releases](https://github.com/henriquejaques/clipclean/releases) include signed-off builds (`clipclean.zip`) when published.
+
 ## License
 
 [MIT](LICENSE)
