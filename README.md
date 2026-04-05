@@ -1,5 +1,8 @@
 # ClipClean
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/henriquejaques)
+
 Firefox extension that cleans TryHackMe glossary buttons for better Obsidian clipping.
 
 ## Why
@@ -27,6 +30,10 @@ Firefox → `about:debugging` → Load Temporary Add-on → select `manifest.jso
 Local storage only. No network requests, tracking, or data collection. See [PRIVACY.md](PRIVACY.md).
 
 Not affiliated with TryHackMe.
+
+## Support
+
+If this project helps you, you can [buy me a coffee on Ko-fi](https://ko-fi.com/henriquejaques).
 
 ## License
 
