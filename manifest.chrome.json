@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "ClipClean for TryHackMe",
+  "version": "1.5.0",
+  "description": "Clean TryHackMe glossary buttons and enable Task Reader Mode for easier note-taking and clipping.",
+  "permissions": ["storage", "tabs"],
+  "host_permissions": ["https://tryhackme.com/room/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "ClipClean for TryHackMe",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://tryhackme.com/room/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "48": "icons/clipclean_48x48_primary.png",
+    "96": "icons/clipclean_96x96_primary.png",
+    "128": "icons/clipclean_128x128_primary.png"
+  }
+}

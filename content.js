@@ -1,3 +1,12 @@
+if (typeof browser !== 'undefined') {
+  // Firefox: browser.* is available natively.
+} else if (typeof chrome !== 'undefined') {
+  // Chrome/Chromium: map chrome.* namespace for shared code.
+  globalThis.browser = chrome;
+} else {
+  throw new Error('ClipClean: unsupported browser environment');
+}
+
 (() => {
   const STORAGE_KEY = 'enabled';
   const ROOM_SELECTOR = '#room_content';
@@ -186,18 +195,26 @@
   }
 
   function watchMessages() {
-    browser.runtime.onMessage.addListener((message) => {
+    browser.runtime.onMessage.addListener((message, _sender, sendResponse) => {
       if (message?.type === 'clipclean:task-reader-mode') {
-        return buildTryHackMeReadAllView();
+        buildTryHackMeReadAllView()
+          .then((result) => sendResponse(result))
+          .catch((err) => {
+            console.warn('ClipClean:', err);
+            sendResponse({ ok: false, reason: 'task-reader-error' });
+          });
+        return true;
       }
       if (message?.type === 'clipclean:task-reader-restore') {
         restoreOriginalTasksView();
-        return Promise.resolve({ ok: true });
+        sendResponse({ ok: true });
+        return false;
       }
       if (message?.type === 'clipclean:task-reader-state') {
-        return Promise.resolve({ ok: true, active: isTaskReaderModeActive() });
+        sendResponse({ ok: true, active: isTaskReaderModeActive() });
+        return false;
       }
-      return undefined;
+      return false;
     });
   }
 

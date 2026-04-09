@@ -10,5 +10,7 @@ Thumbs.db
 
 # Artifacts
 .plan/
+build/
+manifest.json
 clipclean.zip
 *.zip

@@ -1,3 +1,12 @@
+if (typeof browser !== 'undefined') {
+  // Firefox: browser.* is available natively.
+} else if (typeof chrome !== 'undefined') {
+  // Chrome/Chromium: map chrome.* namespace for shared code.
+  globalThis.browser = chrome;
+} else {
+  throw new Error('ClipClean: unsupported browser environment');
+}
+
 (() => {
   const STORAGE_KEY = 'enabled';
   const ROOM_PREFIX = 'https://tryhackme.com/room/';
