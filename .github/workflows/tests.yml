@@ -1,0 +1,36 @@
+name: Cross-browser tests
+
+on:
+  push:
+    branches:
+      - main
+      - 'tests/**'
+  pull_request:
+
+jobs:
+  playwright:
+    name: Playwright (${{ matrix.project }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        project: [chromium, firefox]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps ${{ matrix.project }}
+
+      - name: Run tests
+        run: npx playwright test --project=${{ matrix.project }}

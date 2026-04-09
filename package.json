@@ -1,0 +1,14 @@
+{
+  "name": "clipclean-tests",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Cross-browser regression tests for ClipClean content behavior",
+  "scripts": {
+    "test": "playwright test",
+    "test:chromium": "playwright test --project=chromium",
+    "test:firefox": "playwright test --project=firefox"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.54.2"
+  }
+}

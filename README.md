@@ -33,6 +33,12 @@ TryHackMe wraps key terms in interactive glossary `<button>` elements. When you 
 - The toolbar icon switches between the **primary** (on) and **secondary** (off) icon assets to show the current state
 - Turning it off stops future cleaning; reload the page to restore original buttons
 
+## Testing
+
+- Install test dependencies: `npm ci`
+- Run full cross-browser tests: `npm test`
+- Run a single browser: `npm run test:chromium` or `npm run test:firefox`
+
 ## Privacy
 
 Local storage only. No network requests, tracking, or data collection. See [PRIVACY.md](PRIVACY.md).

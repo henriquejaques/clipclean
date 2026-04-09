@@ -13,6 +13,8 @@ The format is inspired by [Keep a Changelog](https://keepachangelog.com/en/1.1.0
 - 128x128 icon support in manifests for store requirements.
 - `CHROME_STORE.md` with listing copy, privacy declarations, and reviewer testing guidance.
 - `TODO.md` to track future work.
+- Playwright regression test suite for glossary cleanup and Task Reader Mode messaging behavior.
+- GitHub Actions workflow to run tests on Chromium and Firefox for pushes and pull requests.
 
 ### Changed
 

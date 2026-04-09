@@ -14,3 +14,8 @@ build/
 manifest.json
 clipclean.zip
 *.zip
+
+# Test dependencies and outputs
+node_modules/
+test-results/
+playwright-report/
