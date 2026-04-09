@@ -22,6 +22,7 @@ Firefox → `about:debugging` → Load Temporary Add-on → select `manifest.jso
 
 - Toggle the switch in the popup to enable/disable auto-cleaning
 - When enabled, glossary buttons matching `button[data-testid="glossary-term"]` inside `#room_content` are unwrapped automatically — including dynamic content loaded after the page renders
+- Optional: click **Task Reader Mode** in the popup to build a temporary expanded tasks view on room pages (manual, per-page action)
 - The toolbar icon switches between the **primary** (on) and **secondary** (off) icon assets to show the current state
 - Turning it off stops future cleaning; reload the page to restore original buttons
 

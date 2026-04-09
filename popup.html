@@ -175,6 +175,17 @@
       margin: 22px 0 16px;
     }
 
+    .action-wrap {
+      margin: 0 0 10px;
+    }
+
+    .action-desc {
+      margin: 0;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
     .status {
       font-size: 12px;
       line-height: 1.4;
@@ -235,6 +246,19 @@
     </div>
 
     <p class="desc">Removes glossary buttons on room pages so copied text stays clean.</p>
+
+    <div class="divider"></div>
+
+    <div class="action-wrap">
+      <div class="group">
+        <span id="taskReaderLabel" class="group-label">Task reader</span>
+        <label class="switch" aria-label="Enable Task Reader Mode on this room tab">
+          <input id="taskReaderToggle" type="checkbox">
+          <span class="slider"></span>
+        </label>
+      </div>
+      <p id="taskReaderHelp" class="action-desc">Shows a temporary expanded task view for this room tab only.</p>
+    </div>
 
     <div class="divider"></div>
 

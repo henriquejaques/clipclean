@@ -34,13 +34,16 @@ Same intent as `manifest.json` `description`; adjust length to fit AMO’s summa
 
 TryHackMe wraps many terms in interactive glossary `<button>` elements. When you copy room text or clip a page (for example with Obsidian Web Clipper), those buttons break reading flow and produce awkward Markdown. ClipClean unwraps those glossary controls back into normal text so what you copy matches what you read, with structure and formatting preserved where possible.
 
+ClipClean also includes an optional manual **Task Reader Mode** action in the popup. When triggered on a room page, it creates a temporary local expanded task view above the original task accordion and hides only the original task container for easier uninterrupted reading. This does not run automatically.
+
 **How to use it**
 
 1. Install the extension and open any TryHackMe room: `https://tryhackme.com/room/...`
 2. Click the toolbar icon. Use the switch to turn cleaning **on** or **off**.
 3. With cleaning **on**, glossary buttons (`button[data-testid="glossary-term"]`) inside `#room_content` are unwrapped automatically, including content loaded after the page first renders.
 4. The toolbar icon uses the **primary** asset when cleaning is on and the **secondary** asset when it is off (distinct on/off states).
-5. Turning cleaning off stops further changes; **reload the room** if you want the original glossary buttons back.
+5. Optional: click **Task Reader Mode** in the popup while on a room page to build a temporary expanded task view.
+6. Turning cleaning off stops further changes; **reload the room** if you want the original glossary buttons back.
 
 **Privacy**
 
@@ -74,7 +77,9 @@ Choose what best fits AMO’s category list (e.g. **Tabs** or **Web Development*
 2. Open a room URL, e.g. `https://tryhackme.com/room/<room-name>` (any public or enrolled room you can access).
 3. In the main room task/content area, find terms that appear as glossary **buttons** (hover/tooltip behavior is optional to check).
 4. With cleaning **on**, those controls should be replaced by plain text in the DOM (buttons no longer wrapping those terms in `#room_content`).
-5. Toggle cleaning **off** in the popup, **reload** the page — glossary buttons should return.
-6. Copy a paragraph of room text (or use your clipper) and confirm copied text reads naturally without stray button artifacts when cleaning was on before copy.
+5. Click **Task Reader Mode** in the popup and confirm a temporary expanded tasks section appears above the room task list while the original task accordion container is hidden.
+6. Optional restore check: in DevTools console run `window.__thmRestoreOriginal()` and confirm the original task view returns.
+7. Toggle cleaning **off** in the popup, **reload** the page — glossary buttons should return.
+8. Copy a paragraph of room text (or use your clipper) and confirm copied text reads naturally without stray button artifacts when cleaning was on before copy.
 
 **Login:** Some rooms or actions may require login; the extension only matches `https://tryhackme.com/room/*` and does not handle authentication beyond normal page use.

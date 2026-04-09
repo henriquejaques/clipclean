@@ -3,7 +3,7 @@
   "name": "ClipClean for TryHackMe",
   "version": "1.4.1",
   "description": "Toggle cleanup of TryHackMe glossary buttons so captured notes keep the text and formatting.",
-  "permissions": ["storage"],
+  "permissions": ["storage", "tabs"],
   "host_permissions": ["https://tryhackme.com/room/*"],
   "background": {
     "scripts": ["background.js"]
