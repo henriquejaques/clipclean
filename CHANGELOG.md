@@ -22,6 +22,12 @@ The format is inspired by [Keep a Changelog](https://keepachangelog.com/en/1.1.0
 - Updated build flow to generate isolated browser build folders (`build/firefox`, `build/chrome`) and zip artifacts (`clipclean-firefox.zip`, `clipclean-chrome.zip`).
 - Updated extension description and docs to reflect both glossary cleanup and Task Reader Mode.
 - Added explicit browser-environment detection in runtime scripts for shared Firefox/Chrome code paths.
+- `AMO.md`, `CHROME_STORE.md`, and README describe **Task reader** as a popup toggle (on/off, room tab only).
+
+### Fixed
+
+- Firefox: `strict_min_version` **140.0** so `data_collection_permissions` is valid on desktop Gecko (Firefox **140+**) and compatible with **Waterfox 140**, without raising the floor to **142** (required only for the same key on Firefox for Android).
+- Task Reader UI: headings built with `createElement` and `textContent` instead of `innerHTML` for automated review (“unsafe assignment to innerHTML”).
 
 ## [1.4.1] - 2026-04-05
 

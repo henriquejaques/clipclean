@@ -77,7 +77,10 @@ if (typeof browser !== 'undefined') {
       background:#0f172a;color:#e2e8f0;border:1px solid #334155;border-radius:10px;
       padding:16px;margin:16px 0;position:relative;z-index:9999;
     `;
-    readAll.innerHTML = '<h2 style="margin:0 0 12px 0;">Task Reader Mode (local temporary view)</h2>';
+    const h2 = document.createElement('h2');
+    h2.style.cssText = 'margin:0 0 12px 0';
+    h2.textContent = 'Task Reader Mode (local temporary view)';
+    readAll.appendChild(h2);
     tasksRoot.parentElement?.insertBefore(readAll, tasksRoot);
     return readAll;
   }
@@ -99,7 +102,10 @@ if (typeof browser !== 'undefined') {
 
     const article = document.createElement('article');
     article.style.cssText = 'border-top:1px solid #334155;padding-top:12px;margin-top:12px;';
-    article.innerHTML = `<h3 style="margin:0 0 8px 0;">${title || 'Untitled Task'}</h3>`;
+    const h3 = document.createElement('h3');
+    h3.style.cssText = 'margin:0 0 8px 0';
+    h3.textContent = title || 'Untitled Task';
+    article.appendChild(h3);
 
     if (!panel) {
       const info = document.createElement('p');

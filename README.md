@@ -23,13 +23,13 @@ TryHackMe wraps key terms in interactive glossary `<button>` elements. When you 
 1. Run `./build-chrome.sh`
 2. Chrome → `chrome://extensions` → enable Developer mode → Load unpacked → select `build/chrome/`
 
-**Requirements:** Firefox **109+** and modern Chrome/Chromium (Manifest V3).
+**Requirements:** Firefox **140+** (Gecko minimum for `data_collection_permissions` on desktop; works on **Waterfox 140**—see [AMO.md](AMO.md)) and modern Chrome/Chromium (Manifest V3).
 
 ## How it works
 
 - Toggle the switch in the popup to enable/disable auto-cleaning
 - When enabled, glossary buttons matching `button[data-testid="glossary-term"]` inside `#room_content` are unwrapped automatically — including dynamic content loaded after the page renders
-- Optional: click **Task Reader Mode** in the popup to build a temporary expanded tasks view on room pages (manual, per-page action)
+- Optional: use the **Task reader** toggle in the popup on a room tab to show a temporary expanded tasks view; toggle off to restore the accordion (per-tab, manual)
 - The toolbar icon switches between the **primary** (on) and **secondary** (off) icon assets to show the current state
 - Turning it off stops future cleaning; reload the page to restore original buttons
 
