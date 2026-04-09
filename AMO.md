@@ -22,9 +22,9 @@ https://github.com/henriquejaques/clipclean/issues
 
 ## Summary (short description)
 
-Same intent as `manifest.json` `description`; adjust length to fit AMO’s summary field if needed:
+Same intent as `manifest.firefox.json` `description`; adjust length to fit AMO’s summary field if needed:
 
-> Toggle cleanup of TryHackMe glossary buttons so captured notes keep the text and formatting.
+> Clean TryHackMe glossary buttons and enable Task Reader Mode for easier note-taking and clipping.
 
 ---
 

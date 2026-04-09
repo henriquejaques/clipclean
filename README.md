@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/henriquejaques)
 
-Firefox extension that cleans TryHackMe glossary buttons for better Obsidian clipping.
+Browser extension (Firefox and Chrome) that cleans TryHackMe glossary buttons for better Obsidian clipping.
 
 ## Why
 
@@ -13,10 +13,17 @@ TryHackMe wraps key terms in interactive glossary `<button>` elements. When you 
 
 **Firefox Add-ons (AMO):** *Coming soon* — listing copy and reviewer notes live in [AMO.md](AMO.md).
 
-**Manual / Dev:**
-Firefox → `about:debugging` → Load Temporary Add-on → select `manifest.json`
+**Manual / Dev (Firefox):**
 
-**Requirements:** Firefox **109+** (Manifest V3; see `strict_min_version` in `manifest.json`).
+1. Run `./build-firefox.sh`
+2. Firefox → `about:debugging` → Load Temporary Add-on → select `build/firefox/manifest.json`
+
+**Manual / Dev (Chrome):**
+
+1. Run `./build-chrome.sh`
+2. Chrome → `chrome://extensions` → enable Developer mode → Load unpacked → select `build/chrome/`
+
+**Requirements:** Firefox **109+** and modern Chrome/Chromium (Manifest V3).
 
 ## How it works
 
@@ -38,7 +45,7 @@ If this project helps you, you can [buy me a coffee on Ko-fi](https://ko-fi.com/
 
 ## Changelog
 
-Release notes and version history: [CHANGELOG.md](CHANGELOG.md). GitHub [Releases](https://github.com/henriquejaques/clipclean/releases) include signed-off builds (`clipclean.zip`) when published.
+Release notes and version history: [CHANGELOG.md](CHANGELOG.md). GitHub [Releases](https://github.com/henriquejaques/clipclean/releases) include signed-off builds (`clipclean-firefox.zip` and `clipclean-chrome.zip`) when published.
 
 ## License
 
