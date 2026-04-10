@@ -1,98 +1,157 @@
-# Chrome Web Store listing copy (ClipClean for TryHackMe)
+# Chrome Web Store submission template
 
-Use this document when completing the Chrome Web Store Developer Dashboard fields.
+Purpose: this file is a concise, paste-ready checklist for Chrome Web Store submission and updates.
+
+## Build
+
+### Status
+
+- N/A
+
+### Package
+
+- N/A
 
 ## Store Listing
 
-### Name
+### Title
 
-ClipClean for TryHackMe
+- From `manifest.chrome.json` `name`: `ClipClean for TryHackMe`
 
-### Short description
+### Summary
 
-Clean TryHackMe glossary buttons and expand all room tasks for better note-taking and clipping.
+- From `manifest.chrome.json` `description`: `Clean TryHackMe glossary buttons and enable Task Reader Mode for easier note-taking and clipping.`
 
-### Full description
+### Description
 
-**What it does**
+Use this paste-ready description (focused on what it does and why install):
 
-TryHackMe wraps many terms in interactive glossary `<button>` elements. When you copy room text or clip a page (for example with Obsidian Web Clipper), those buttons can break reading flow and produce awkward Markdown. ClipClean unwraps those glossary controls back into normal text so what you copy matches what you read.
+ClipClean improves TryHackMe room pages for note-taking and clipping.
 
-ClipClean also includes an optional **Task reader** toggle in the popup (only when the active tab is a TryHackMe room). Turn it **on** to build a temporary expanded task view above the original task accordion and hide the original task container; turn it **off** to restore the normal accordion. The popup may show how many tasks were expanded.
+TryHackMe wraps many terms in interactive glossary buttons. Those controls can make copied text and clipped Markdown harder to read. ClipClean automatically unwraps those glossary controls into normal text so copied room content stays cleaner.
 
-**How to use it**
+ClipClean also provides optional Task Reader Mode. On a TryHackMe room tab, toggle it on in the popup to build a temporary expanded task view above the original accordion. Toggle it off to restore the original task view.
 
-1. Open any TryHackMe room: `https://tryhackme.com/room/...`
-2. Click the extension icon and turn Auto-clean on/off.
-3. With Auto-clean on, glossary buttons (`button[data-testid="glossary-term"]`) in `#room_content` are unwrapped automatically, including dynamically loaded content.
-4. Optional: on a room tab, turn **Task reader** **on** in the popup for a temporary expanded task view; turn it **off** to restore the original accordion.
-5. Turn Auto-clean off and reload the page if you want to restore original glossary buttons.
-
-**Privacy**
-
-Everything runs locally in your browser. The extension stores only local preferences (`storage`) and does not send data to external servers, analytics, or trackers.
-
-**Notice**
-
-Not affiliated with or endorsed by TryHackMe.
+Everything runs locally in the browser. No tracking or analytics.
 
 ### Category
 
-Productivity
+- `Functionality & UI` (chosen value)
 
 ### Language
 
-English
+- English
 
-### URLs
+### Store icon
 
-- Homepage URL: https://github.com/henriquejaques/clipclean
-- Support URL: https://github.com/henriquejaques/clipclean/issues
-- Privacy policy URL: https://github.com/henriquejaques/clipclean/blob/main/PRIVACY.md
+- Use primary icon asset (`128x128`) from extension icons
 
-## Privacy tab
+### Global promo video
 
-### Single purpose description
+- N/A
 
-Cleans TryHackMe glossary button elements and provides a task reader view so room content copies cleanly into notes.
+### Screenshots
+
+- Required: at least 1
+- Format: JPEG or 24-bit PNG (no alpha)
+- Size: `1280x800` or `640x400`
+- Recommended max: up to 5
+- Source folder: `screenshots/` (create/fill before submission)
+
+### Small promo tile
+
+- Optional
+- Size: `440x280`
+- Format: JPEG or 24-bit PNG (no alpha)
+
+### Marquee promo tile
+
+- Optional
+- Size: `1400x560`
+- Format: JPEG or 24-bit PNG (no alpha)
+
+### Official URL
+
+- N/A
+
+### Homepage URL
+
+- `https://github.com/henriquejaques/clipclean`
+
+### Support URL
+
+- `https://github.com/henriquejaques/clipclean/issues`
+
+### Mature content
+
+- No
+
+## Privacy
+
+Policy reference: [Chrome Web Store Program Policies](https://developer.chrome.com/webstore/program_policies)
+
+### Single purpose
+
+ClipClean improves TryHackMe room pages for note-taking and clipping by removing glossary button wrappers and offering manual Task Reader Mode.
 
 ### Permission justifications
 
-- `storage`: Persists the user's on/off preference for automatic glossary cleanup.
-- `tabs`: Detects whether the active tab is a TryHackMe room and sends Task reader (Task Reader Mode) on/off messages to that tab.
-- `host_permissions` (`https://tryhackme.com/room/*`): Limits content script execution to TryHackMe room pages.
+- `storage`: stores the Auto-clean on/off preference locally.
+- `tabs`: checks whether the active tab is a TryHackMe room and sends Task Reader Mode messages to that tab.
+- `host_permissions` (`https://tryhackme.com/room/*`): limits script execution to TryHackMe room pages only.
 
 ### Remote code
 
-No, this extension does not use remote code.
+- No, this extension does not use remote code.
 
-### Data usage
+### User data collection
 
-The extension does not collect, transmit, or sell user data.
+- None. Leave collection categories unselected if the form allows.
 
-## Distribution tab
+### Certification disclosures
 
+- Yes, confirm all applicable disclosures:
+  - do not sell or transfer user data to third parties outside approved use cases
+  - do not use or transfer user data for unrelated purposes
+  - do not use or transfer user data for creditworthiness/lending
+
+### Privacy policy URL
+
+- `https://github.com/henriquejaques/clipclean/blob/main/PRIVACY.md`
+
+## Distribution
+
+- Payments: Free of charge
 - Visibility: Public
 - Regions: All regions
 
-## Test instructions
+## Access
 
-Reviewer testing requires a free TryHackMe account.
+### Test Instructions
 
-1. Install the extension and open a room URL: `https://tryhackme.com/room/<room-name>`.
-2. Turn Auto-clean on in the popup.
+### Credentials
+
+- Username: `fpxzojbynrtedzgrdx@nespj.com`
+- Password: `Qwaszx12!`
+
+### Additional instructions
+
+Reviewer testing requires login to TryHackMe. After login:
+
+1. Install extension and open `https://tryhackme.com/room/<room-name>`.
+2. Turn Auto-clean on in popup.
 3. Confirm glossary buttons in `#room_content` are replaced by plain text.
-4. Turn **Task reader** **on** in the popup.
-5. Confirm expanded task content appears above the original accordion and original task container is hidden.
-6. Turn **Task reader** **off** and confirm the original task view returns.
-7. Turn Auto-clean off, reload the room, and confirm glossary buttons appear again.
+4. Turn Task Reader Mode on.
+5. Confirm expanded tasks view appears and original task container is hidden.
+6. Turn Task Reader Mode off and confirm original task view returns.
+7. Turn Auto-clean off, reload room, and confirm glossary buttons return.
 
-## Screenshot guidance
+## Chrome Store update flow
 
-Chrome Web Store requires at least one screenshot in `1280x800` or `640x400`.
+No update submitted yet. For future version updates:
 
-Recommended:
-
-1. Browser viewport showing a TryHackMe room with the extension popup open (both toggles visible).
-2. TryHackMe room with Task Reader Mode active (expanded task view visible).
-3. Optional: before/after state for glossary cleanup off vs on.
+1. Bump manifest version.
+2. Build package.
+3. Update listing text only if feature behavior changed.
+4. Paste release notes from `CHANGELOG.md`.
+5. Re-validate privacy answers if permissions or data behavior changed.

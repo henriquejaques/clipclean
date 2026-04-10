@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/henriquejaques)
 
-Browser extension (Firefox and Chrome) that cleans TryHackMe glossary buttons for better Obsidian clipping.
+Browser extension (Firefox and Chrome) that cleans TryHackMe glossary buttons and adds an optional Task Reader Mode for easier clipping.
 
 ## Why
 
@@ -11,7 +11,9 @@ TryHackMe wraps key terms in interactive glossary `<button>` elements. When you 
 
 ## Install
 
-**Firefox Add-ons (AMO):** *Coming soon* — listing copy and reviewer notes live in [AMO.md](AMO.md).
+**Firefox Add-ons (AMO):** *Coming soon* — submission template and reviewer notes live in [AMO.md](AMO.md).
+
+**Chrome Web Store:** submission template/checklist lives in [CHROME_STORE.md](CHROME_STORE.md).
 
 **Manual / Dev (Firefox):**
 
@@ -29,7 +31,7 @@ TryHackMe wraps key terms in interactive glossary `<button>` elements. When you 
 
 - Toggle the switch in the popup to enable/disable auto-cleaning
 - When enabled, glossary buttons matching `button[data-testid="glossary-term"]` inside `#room_content` are unwrapped automatically — including dynamic content loaded after the page renders
-- Optional: use the **Task reader** toggle in the popup on a room tab to show a temporary expanded tasks view; toggle off to restore the accordion (per-tab, manual)
+- Optional: use the **Task Reader Mode** toggle in the popup on a room tab to build a temporary expanded tasks view; toggle off to restore the original accordion (per-tab, manual, not persisted)
 - The toolbar icon switches between the **primary** (on) and **secondary** (off) icon assets to show the current state
 - Turning it off stops future cleaning; reload the page to restore original buttons
 

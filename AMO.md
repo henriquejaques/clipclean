@@ -1,87 +1,81 @@
-# AMO listing copy (ClipClean for TryHackMe)
+# AMO submission template
 
-Use the sections below in [Firefox Add-ons Developer Hub](https://addons.mozilla.org/developers/). Manifest `strict_min_version` is **140.0**: desktop Firefox **140** is the first release where `browser_specific_settings.gecko.data_collection_permissions` is honored, so the floor cannot stay at **109** without tripping validation. **140.0** keeps the add-on installable on **Waterfox 140** and current desktop Firefox. AMO may still surface an Android-only warning because Firefox for Android **142** is required for the same manifest key on Fenix; this listing targets **desktop only**—leave Android compatibility off unless you test there. Keep AMO “Supported versions” aligned with **140.0**.
+Purpose: this file is a concise, paste-ready checklist for AMO submission and updates.
 
-## Homepage
+## Core listing fields
 
-https://github.com/henriquejaques/clipclean
+### Homepage
 
-## Support email
+- `https://github.com/henriquejaques/clipclean`
 
-henriquemjaques@gmail.com
+### Support email
 
-## Support site (issues)
+- `henriquemjaques@gmail.com`
 
-https://github.com/henriquejaques/clipclean/issues
+### Support site
 
-## Compatibility
+- `https://github.com/henriquejaques/clipclean/issues`
 
-**Desktop Firefox only.** In the listing’s compatibility controls, **do not** mark the add-on as compatible with Firefox for Android unless you have explicitly tested it there.
+### Compatibility
 
-Choosing **140.0** (instead of **142.0**) prioritizes desktop users and Gecko-**140** forks such as Waterfox. If AMO warns about Android manifest rules, treat it as expected until you either raise the floor to **142** or drop Android from validation scope by not shipping for Fenix.
+- Desktop Firefox only
+- AMO compatibility: tick Firefox
+- Keep Gecko `strict_min_version` aligned with `manifest.firefox.json` (`140.0`)
 
----
+### Summary (short description)
 
-## Summary (short description)
+- From manifest description: `Clean TryHackMe glossary buttons and enable Task Reader Mode for easier note-taking and clipping.`
 
-Same intent as `manifest.firefox.json` `description`; adjust length to fit AMO’s summary field if needed:
+### Full description
 
-> Clean TryHackMe glossary buttons and enable Task Reader Mode for easier note-taking and clipping.
+ClipClean improves TryHackMe room pages for note-taking and clipping.
 
----
+TryHackMe wraps many terms in interactive glossary buttons. Those controls can make copied text and clipped Markdown harder to read. ClipClean automatically unwraps those glossary controls into normal text so copied room content stays cleaner.
 
-## Full description (for the listing)
+ClipClean also provides optional Task Reader Mode. On a TryHackMe room tab, toggle it on in the popup to build a temporary expanded task view above the original accordion. Toggle it off to restore the original task view.
 
-**What it does**
+Everything runs locally in the browser. No tracking or analytics.
 
-TryHackMe wraps many terms in interactive glossary `<button>` elements. When you copy room text or clip a page (for example with Obsidian Web Clipper), those buttons break reading flow and produce awkward Markdown. ClipClean unwraps those glossary controls back into normal text so what you copy matches what you read, with structure and formatting preserved where possible.
+### Suggested tags
 
-ClipClean also includes an optional **Task reader** toggle in the popup (per open room tab only). Turn it **on** on a room page to build a temporary expanded task view above the original task accordion and hide the original task container; turn it **off** to restore the normal accordion. It does not run automatically and is disabled until you are on a TryHackMe room tab.
+- `tryhackme`, `cybersecurity`, `notes`, `clipboard`, `markdown`, `education`
 
-**How to use it**
+### Suggested category
 
-1. Install the extension and open any TryHackMe room: `https://tryhackme.com/room/...`
-2. Click the toolbar icon. Use the switch to turn cleaning **on** or **off**.
-3. With cleaning **on**, glossary buttons (`button[data-testid="glossary-term"]`) inside `#room_content` are unwrapped automatically, including content loaded after the page first renders.
-4. The toolbar icon uses the **primary** asset when cleaning is on and the **secondary** asset when it is off (distinct on/off states).
-5. Optional: on a room tab, turn **Task reader** **on** in the popup to build the expanded task view; turn it **off** to restore the original task accordion. The status line may show how many tasks were expanded.
-6. Turning cleaning off stops further changes; **reload the room** if you want the original glossary buttons back.
+- Use closest AMO fit (typically `Tabs` or `Web Development`)
 
-**Privacy**
+## AMO new submission flow
 
-Everything runs locally in your browser. Only your on/off preference is stored (`browser.storage.local`). The extension is scoped to `https://tryhackme.com/room/*`. It does not send data to external servers, analytics, or trackers. Details: [PRIVACY.md](PRIVACY.md) in the repository.
+1. How to distribute this version: `On this site`
+2. Upload file: `clipclean-firefox.zip`
+3. Applications compatibility: tick Firefox
+4. Release notes: copy from `CHANGELOG.md` for the target version
+5. Notes to reviewer: paste section below
 
-**Notice**
+## AMO update flow
 
-Not affiliated with or endorsed by TryHackMe.
+1. Upload new package
+2. Applications compatibility: tick Firefox
+3. Release notes: copy from `CHANGELOG.md` for the new version
+4. Notes to reviewer: paste section below (refresh only if behavior changed)
 
----
+## Notes to reviewer (paste-ready)
 
-## Suggested tags
+Test account for TryHackMe:
 
-`tryhackme` · `cybersecurity` · `notes` · `clipboard` · `markdown` · `education`
+- Username: `fpxzojbynrtedzgrdx@nespj.com`
+- Password: `Qwaszx12!`
 
-*(Pick the subset AMO allows.)*
+Reviewer steps:
 
-## Suggested categories
+1. Install the add-on and open `https://tryhackme.com/room/<room-name>`.
+2. Ensure Auto-clean is on in the popup.
+3. Confirm glossary `button[data-testid="glossary-term"]` elements in `#room_content` are replaced by plain text.
+4. Enable Task Reader Mode in popup and confirm expanded tasks view appears while original task container is hidden.
+5. Disable Task Reader Mode and confirm original task view returns.
+6. Turn Auto-clean off, reload room, and confirm glossary buttons return.
 
-Choose what best fits AMO’s category list (e.g. **Tabs** or **Web Development** if nothing else fits; “security learning” often maps imperfectly—use the closest honest category).
+Notes:
 
----
-
-## Notes to reviewers
-
-**Account:** Verification requires a **TryHackMe account** (free tier is enough). Sign in at https://tryhackme.com — you can test in **any** room after logging in.
-
-**Steps:**
-
-1. Install the add-on and ensure cleaning is **on** (toolbar **primary** icon; popup switch enabled).
-2. Open a room URL, e.g. `https://tryhackme.com/room/<room-name>` (any public or enrolled room you can access).
-3. In the main room task/content area, find terms that appear as glossary **buttons** (hover/tooltip behavior is optional to check).
-4. With cleaning **on**, those controls should be replaced by plain text in the DOM (buttons no longer wrapping those terms in `#room_content`).
-5. Turn **Task reader** **on** in the popup and confirm a temporary expanded tasks section appears above the room task list while the original task accordion container is hidden.
-6. Turn **Task reader** **off** and confirm the original task view returns (optional: in DevTools run `window.__thmRestoreOriginal()` for the same restore path).
-7. Toggle cleaning **off** in the popup, **reload** the page — glossary buttons should return.
-8. Copy a paragraph of room text (or use your clipper) and confirm copied text reads naturally without stray button artifacts when cleaning was on before copy.
-
-**Login:** Some rooms or actions may require login; the extension only matches `https://tryhackme.com/room/*` and does not handle authentication beyond normal page use.
+- Extension scope is `https://tryhackme.com/room/*`.
+- Not affiliated with TryHackMe.

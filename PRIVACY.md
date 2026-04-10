@@ -1,10 +1,11 @@
 # Privacy Policy
 
-**Last updated:** 2026-04-05
+**Last updated:** 2026-04-10
 
 This extension operates entirely locally in your browser:
 
-- Toggle state saved to browser storage (`browser.storage.local`; manifest permission: `storage`)
+- Auto-clean toggle state saved to browser storage (`browser.storage.local`; manifest permission: `storage`)
+- Task Reader Mode is triggered manually per room tab and is not stored as a persistent preference
 - Site access limited to `https://tryhackme.com/room/*` (manifest `host_permissions`)
 - No external requests or data transmission
 - No analytics, cookies, or tracking

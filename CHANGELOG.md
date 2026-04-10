@@ -4,6 +4,12 @@ All notable changes to **ClipClean for TryHackMe** are documented in this file.
 
 The format is inspired by [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) for extension releases (aligned with manifest versions).
 
+## [Unreleased]
+
+### Changed
+
+- Documentation refresh across README, store listing docs, and privacy policy to match current 1.5.x behavior and Task Reader Mode wording.
+
 ## [1.5.0] - 2026-04-09
 
 ### Added
@@ -22,7 +28,7 @@ The format is inspired by [Keep a Changelog](https://keepachangelog.com/en/1.1.0
 - Updated build flow to generate isolated browser build folders (`build/firefox`, `build/chrome`) and zip artifacts (`clipclean-firefox.zip`, `clipclean-chrome.zip`).
 - Updated extension description and docs to reflect both glossary cleanup and Task Reader Mode.
 - Added explicit browser-environment detection in runtime scripts for shared Firefox/Chrome code paths.
-- `AMO.md`, `CHROME_STORE.md`, and README describe **Task reader** as a popup toggle (on/off, room tab only).
+- `AMO.md`, `CHROME_STORE.md`, and README describe **Task Reader Mode** as a popup toggle (on/off, room tab only).
 
 ### Fixed
 
